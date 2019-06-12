@@ -9,7 +9,7 @@ export class ChildComponent implements OnInit {
 
   @Input('eventStream') eventStream$;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
 
@@ -17,5 +17,4 @@ export class ChildComponent implements OnInit {
     if (toggle) return 'Agreed';
     else return 'Agree to terms by clicking';
   }
-
 }

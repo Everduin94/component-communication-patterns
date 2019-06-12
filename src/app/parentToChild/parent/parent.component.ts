@@ -9,22 +9,20 @@ import { map } from 'rxjs/operators';
 })
 export class ParentComponent implements OnInit {
 
-  private currentState = new BehaviorSubject({
+  private data = new BehaviorSubject({
     enabled: false,
     toolTip: false
   });
-  public eventStream$ = this.currentState.asObservable()
+  public eventStream$ = this.data.asObservable()
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   update(value, command) {
-    let update = this.currentState.value;
+    let update = this.data.value;
     if (command === 'enabled') update.enabled = value;
     if (command === 'toolTip') update.toolTip = value;
-    this.currentState.next(update);
+    this.data.next(update);
   }
-
 }
