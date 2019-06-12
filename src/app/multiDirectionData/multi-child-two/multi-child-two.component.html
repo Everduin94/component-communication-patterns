@@ -1,5 +1,3 @@
 <div *ngIf="eventStream$ | async as status">
-  {{status}}
-  
+  <span *ngIf="state.value as value">{{value}}</span>  
 </div>
-<span *ngIf="state.value as value">{{value}}</span>

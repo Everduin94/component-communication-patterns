@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { BehaviorSubject, interval } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { tap, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-multi-child-two',
@@ -16,9 +16,10 @@ export class MultiChildTwoComponent implements OnInit {
 
   ngOnInit() {
     this.eventStream$ = this.eventStream$.pipe(
-      map(val => {
+      tap(val => {
         console.log(val);
         if (val === 'Running') this.start();
+
       })
     )
   }
