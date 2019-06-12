@@ -3,11 +3,11 @@ import { BehaviorSubject, interval } from 'rxjs';
 import { tap, take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-multi-child-two',
-  templateUrl: './multi-child-two.component.html',
-  styleUrls: ['./multi-child-two.component.css']
+  selector: 'app-multi-child',
+  templateUrl: './multi-child.component.html',
+  styleUrls: ['./multi-child.component.css']
 })
-export class MultiChildTwoComponent implements OnInit {
+export class MultiChildComponent implements OnInit {
 
   @Input('loadtime') loadtime;
   @Input('eventStream') eventStream$;
@@ -29,6 +29,4 @@ export class MultiChildTwoComponent implements OnInit {
       this.state.next('Complete!');
     }, this.loadtime);
   }
-
-
 }

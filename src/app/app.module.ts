@@ -15,12 +15,11 @@ import { ActivatorComponent } from './unrelated/activator/activator.component';
 
 import { ToastService } from './unrelated/toast.service';
 import { MultiParentComponent } from './multiDirectionData/multi-parent/multi-parent.component';
-import { MultiChildOneComponent } from './multiDirectionData/multi-child-one/multi-child-one.component';
-import { MultiChildTwoComponent } from './multiDirectionData/multi-child-two/multi-child-two.component';
+import { MultiChildComponent } from './multiDirectionData/multi-child/multi-child.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, ChildOneComponent, ChildTwoComponent,  ParentDirective, ToastComponent, ParentComponent, ChildComponent, ActivatorComponent, MultiParentComponent, MultiChildOneComponent, MultiChildTwoComponent],
+  declarations: [ AppComponent, HelloComponent, ChildOneComponent, ChildTwoComponent,  ParentDirective, ToastComponent, ParentComponent, ChildComponent, ActivatorComponent, MultiParentComponent, MultiChildComponent],
   bootstrap:    [ AppComponent ],
   providers: [ToastService]
 })
