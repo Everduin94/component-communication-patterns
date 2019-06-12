@@ -14,10 +14,13 @@ import { ChildComponent } from './parentToChild/child/child.component';
 import { ActivatorComponent } from './unrelated/activator/activator.component';
 
 import { ToastService } from './unrelated/toast.service';
+import { MultiParentComponent } from './multiDirectionData/multi-parent/multi-parent.component';
+import { MultiChildOneComponent } from './multiDirectionData/multi-child-one/multi-child-one.component';
+import { MultiChildTwoComponent } from './multiDirectionData/multi-child-two/multi-child-two.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, ChildOneComponent, ChildTwoComponent,  ParentDirective, ToastComponent, ParentComponent, ChildComponent, ActivatorComponent],
+  declarations: [ AppComponent, HelloComponent, ChildOneComponent, ChildTwoComponent,  ParentDirective, ToastComponent, ParentComponent, ChildComponent, ActivatorComponent, MultiParentComponent, MultiChildOneComponent, MultiChildTwoComponent],
   bootstrap:    [ AppComponent ],
   providers: [ToastService]
 })
