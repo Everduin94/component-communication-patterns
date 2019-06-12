@@ -9,19 +9,11 @@ import { map, mapTo, startWith } from 'rxjs/operators';
 })
 export class MultiParentComponent implements OnInit {
 
-  @ViewChild('startBtn', {static: true})
-  startBtn: ElementRef;
-
   private state = new BehaviorSubject('Off');
-  public eventStream$: Observable<any>;
+  public eventStream$: Observable<any> = this.state.asObservable();
 
   constructor() { }
 
-  ngOnInit() {
-    const clickEvent = fromEvent(this.startBtn.nativeElement, 'click').pipe(map(val => {
-      mapTo(true), startWith(false)
-    }));
-    this.eventStream$ = combineLatest(this.state.asObservable(), clickEvent);
-  }
+  ngOnInit() {}
 
 }

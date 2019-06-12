@@ -1,4 +1,4 @@
-<h3>{{state}}</h3>
+<h3>{{state.value}}</h3>
+<button #startBtn type="button" (click)="state.next('Running')">Start</button>
 <app-multi-child-one></app-multi-child-one>
-<app-multi-child-two></app-multi-child-two>
-<button #startBtn type="button">Start</button>
+<app-multi-child-two [eventStream]="eventStream$"></app-multi-child-two>
