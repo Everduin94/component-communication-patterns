@@ -9,17 +9,18 @@ import { map, mapTo, startWith } from 'rxjs/operators';
 })
 export class MultiParentComponent implements OnInit {
 
+  private counter = 0;
   private state = new BehaviorSubject('Off');
   public eventStream$: Observable<any> = this.state.asObservable();
-  counter = 0;
+  
 
   constructor() { }
 
   ngOnInit() {}
 
   updateStatus(value) {
-    this.counter++;
-    if (this.counter = 4) {
+    if (value === 'Complete!') this.counter++;
+    if (this.counter === 2) {
       this.state.next('Process Complete');
       this.counter = 0;
     }

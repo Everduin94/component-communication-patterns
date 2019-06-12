@@ -3,8 +3,8 @@
 <app-multi-child-two 
 [eventStream]="eventStream$" 
 [loadtime]="3000"
-(done)="updateStatus()"></app-multi-child-two>
+(done)="updateStatus($event)"></app-multi-child-two>
 <app-multi-child-two 
 [eventStream]="eventStream$" 
 [loadtime]="5000"
-(done)="updateStatus()"></app-multi-child-two>
+(done)="updateStatus($event)"></app-multi-child-two>
