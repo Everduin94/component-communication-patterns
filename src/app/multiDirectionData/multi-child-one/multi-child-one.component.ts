@@ -11,7 +11,6 @@ export class MultiChildOneComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

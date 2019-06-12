@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { BehaviorSubject, combineLatest, fromEvent, Observable } from 'rxjs';
+import { map, mapTo, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-multi-parent',
@@ -8,16 +9,19 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MultiParentComponent implements OnInit {
 
-  private state = new BehaviorSubject({
-    start: false,
-    oneComplete: false,
-    twoComplete: false
-  });
-  public eventStream$ = this.state.asObservable();
+  @ViewChild('startBtn', {static: true})
+  startBtn: ElementRef;
+
+  private state = new BehaviorSubject('Off');
+  public eventStream$: Observable<any>;
 
   constructor() { }
 
   ngOnInit() {
+    const clickEvent = fromEvent(this.startBtn.nativeElement, 'click').pipe(map(val => {
+      mapTo(true), startWith(false)
+    }));
+    this.eventStream$ = combineLatest(this.state.asObservable(), clickEvent);
   }
 
 }

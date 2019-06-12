@@ -11,7 +11,6 @@ export class MultiChildTwoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
