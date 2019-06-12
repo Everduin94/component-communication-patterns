@@ -1,0 +1,6 @@
+<span>Agree to the Terms of Service:</span> 
+<input #toggle type="checkbox" 
+(change)="update(toggle.checked, 'enabled')" 
+(mouseover)="update(true, 'toolTip')"
+(mouseleave)="update(false, 'toolTip')">
+<app-child [eventStream]="eventStream$"></app-child>

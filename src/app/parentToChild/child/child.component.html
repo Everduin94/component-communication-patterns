@@ -1,0 +1,3 @@
+<ng-container *ngIf="eventStream$ | async as toggle">
+  <div *ngIf="toggle.toolTip">{{getMessage(toggle.enabled)}}</div>
+</ng-container>

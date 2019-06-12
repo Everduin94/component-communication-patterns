@@ -1,0 +1,10 @@
+div {
+  margin: 10px;
+  padding: 10px;
+  background: dodgerblue;
+  border-radius: 2px;
+  border: 1px solid rgb(55, 137, 219);
+  box-shadow: 6px 6px 2px 1px rgba(30, 144, 255, .2);
+  text-align: center;
+  color: #FFFFFF;
+}

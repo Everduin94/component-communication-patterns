@@ -1,0 +1,15 @@
+/* Add application styles & imports to this file! */
+button {
+  padding: 10px;
+  margin: 10px;
+  background: dodgerblue;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 2px;
+  border: 1px solid dodgerblue;
+}
+
+button:hover {
+  color: dodgerblue;
+  background: #FFFFFF;
+}

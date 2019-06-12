@@ -1,0 +1,33 @@
+.toast {
+  background: dodgerblue;
+  color: #FFFFFF;
+  padding: 10px;
+  /* Required to Center (Must have width) */
+  position: absolute;
+  width: 130px; 
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 0px;
+  opacity: 0;
+
+  text-align: center;
+  animation: moveUp 2.5s 2 forwards alternate;
+}
+
+@keyframes moveUp {
+  0% {
+    bottom: 0px;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+    bottom: 30px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 30px;
+  }
+}
