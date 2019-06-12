@@ -1,4 +1,10 @@
 <h3>{{state.value}}</h3>
 <button #startBtn type="button" (click)="state.next('Running')">Start</button>
-<app-multi-child-one></app-multi-child-one>
-<app-multi-child-two [eventStream]="eventStream$"></app-multi-child-two>
+<app-multi-child-two 
+[eventStream]="eventStream$" 
+[loadtime]="3000"
+(done)="updateStatus()"></app-multi-child-two>
+<app-multi-child-two 
+[eventStream]="eventStream$" 
+[loadtime]="5000"
+(done)="updateStatus()"></app-multi-child-two>

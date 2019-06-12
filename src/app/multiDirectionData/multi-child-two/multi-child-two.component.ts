@@ -9,6 +9,7 @@ import { tap, take } from 'rxjs/operators';
 })
 export class MultiChildTwoComponent implements OnInit {
 
+  @Input('loadtime') loadtime;
   @Input('eventStream') eventStream$;
   @Output('done') state: BehaviorSubject<string> = new BehaviorSubject('');
 
@@ -17,9 +18,7 @@ export class MultiChildTwoComponent implements OnInit {
   ngOnInit() {
     this.eventStream$ = this.eventStream$.pipe(
       tap(val => {
-        console.log(val);
         if (val === 'Running') this.start();
-
       })
     )
   }
@@ -28,7 +27,7 @@ export class MultiChildTwoComponent implements OnInit {
     this.state.next('Loading...');
     setTimeout(val => {
       this.state.next('Complete!');
-    }, 3000);
+    }, this.loadtime);
   }
 
 
