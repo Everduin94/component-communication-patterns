@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BehaviorSubject, interval } from 'rxjs';
 import { tap, take } from 'rxjs/operators';
 
@@ -12,11 +12,15 @@ export class MultiChildComponent implements OnInit {
   @Input('loadtime') loadtime;
   @Input('eventStream') eventStream$;
   state: BehaviorSubject<string> = new BehaviorSubject('');
-   @Output('done') outputStream$ = this.state.asObservable();
+  //  @Output('done') outputStream$ = this.state.asObservable();
+   @Output('done') eventEmitter = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
+    this.state.pipe(tap(val => {
+      this.eventEmitter.emit(val);
+    }));
     this.eventStream$ = this.eventStream$.pipe(
       tap(val => {
         if (val === 'Running') this.start();
