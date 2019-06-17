@@ -11,7 +11,8 @@ export class MultiChildComponent implements OnInit {
 
   @Input('loadtime') loadtime;
   @Input('eventStream') eventStream$;
-  @Output('done') state: BehaviorSubject<string> = new BehaviorSubject('');
+  state: BehaviorSubject<string> = new BehaviorSubject('');
+   @Output('done') outputStream$ = this.state.asObservable();
 
   constructor() { }
 
