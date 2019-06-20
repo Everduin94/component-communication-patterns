@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { BehaviorSubject, interval } from 'rxjs';
 import { tap, take } from 'rxjs/operators';
 
@@ -7,7 +7,7 @@ import { tap, take } from 'rxjs/operators';
   templateUrl: './multi-child.component.html',
   styleUrls: ['./multi-child.component.css']
 })
-export class MultiChildComponent implements OnInit {
+export class MultiChildComponent implements OnInit, OnDestroy {
 
   @Input('loadtime') loadtime;
   @Input('eventStream') eventStream$;
@@ -18,9 +18,9 @@ export class MultiChildComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.state.pipe(tap(val => {
+    this.state.subscribe(val => {
       this.eventEmitter.emit(val);
-    }));
+    });
     this.eventStream$ = this.eventStream$.pipe(
       tap(val => {
         if (val === 'Running') this.start();
@@ -33,5 +33,9 @@ export class MultiChildComponent implements OnInit {
     setTimeout(val => {
       this.state.next('Complete!');
     }, this.loadtime);
+  }
+
+  ngOnDestroy() {
+    this.state.unsubscribe();
   }
 }
